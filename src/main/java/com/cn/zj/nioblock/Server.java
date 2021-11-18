@@ -1,4 +1,4 @@
-package com.cn.zj.niozuse;
+package com.cn.zj.nioblock;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -17,8 +17,6 @@ public class Server {
     public static void main(String[] args) throws IOException {
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
         ServerSocketChannel channel = ServerSocketChannel.open();
-        // 非常重要，编程非阻塞模式。
-        channel.configureBlocking(false);
 
         channel.bind(new InetSocketAddress(8080));
         List<SocketChannel> channels = new ArrayList<>();
